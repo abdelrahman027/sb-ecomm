@@ -1,0 +1,27 @@
+package com.abdelrahman027.sbecom2.exception;
+
+
+
+public class ResourceNotFoundException extends RuntimeException {
+    String resourceName;
+    String field;
+    String fieldName;
+    Long fieldId;
+
+    public ResourceNotFoundException() {
+
+    }
+    public ResourceNotFoundException(String resourceName, String field,String fieldName){
+        super(String.format("%s not found with %s : %s",resourceName,field,fieldName));
+        this.resourceName =resourceName;
+        this.field = field;
+        this.fieldName = fieldName;
+    }
+
+    public ResourceNotFoundException(String resourceName, Long fieldId, String field) {
+        super(String.format("%s not found with %s : %d",resourceName,field,fieldId));
+        this.resourceName = resourceName;
+        this.fieldId = fieldId;
+        this.field = field;
+    }
+}
